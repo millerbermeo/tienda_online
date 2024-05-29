@@ -1,0 +1,56 @@
+---
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import Home from '../components/Home.astro';
+
+const products = [
+  {
+    name: 'Taladro Eléctrico',
+    image: 'https://images.pexels.com/photos/835872/pexels-photo-835872.jpeg',
+    price: '50.00',
+  },
+  {
+    name: 'Sierra Circular',
+    image: 'https://images.pexels.com/photos/39625/pexels-photo-39625.jpeg',
+    price: '75.00',
+  },
+  {
+    name: 'Llave Inglesa',
+    image: 'https://images.pexels.com/photos/1320686/pexels-photo-1320686.jpeg',
+    price: '20.00',
+  },
+];
+---
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Tienda de Maquinas y Herramientas</title>
+  </head>
+  <body class="bg-gray-100">
+    <Navbar />
+
+    <main class="bg-gray-200 h-screen w-full ">
+		<Home/>
+    </main>
+
+    <section class="flex w-full pl-16 p-20 py-16">
+      <div class="w-full">
+        <h1 class="text-center text-3xl font-bold mb-8">Bienvenido a nuestra Tienda de Maquinas y Herramientas</h1>
+        <section class="flex flex-wrap gap-8 justify-center">
+          {products.map(product => (
+            <div class="border border-gray-300 rounded-lg p-4 text-center w-72">
+              <img src={product.image} alt={product.name} class="w-full h-auto mb-4" />
+              <h2 class="text-xl font-semibold">{product.name}</h2>
+              <p class="text-lg font-medium text-gray-700">${product.price}</p>
+            </div>
+          ))}
+        </section>
+      </div>
+    </section>
+
+    <Footer />
+  </body>
+</html>
